@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Libros</title>
+</head>
+<body>
+<h1>Lista de Libros</h1>
+<a href="/agregar" class="btn-agregar">Agregar nuevo libro</a>
+
+<ul>
+    <th:block th:each="libro : ${libros}">
+        <li>
+            <span th:text="${libro.titulo}">Titulo</span> -
+            <span th:text="${libro.autor}">Autor</span> -
+            <span th:text="${libro.anioPublicacion}">Año</span>
+            <a th:href="@{/eliminar/{id}(id=${libro.id})}" class="btn-eliminar"
+               aria-label="Eliminar libro">Eliminar</a>
+            <a th:href="@{/buscar/{id}(id=${libro.id})}" class="btn-detalle"
+               aria-label="Ver detalles del libro">Ver detalle</a>
+        </li>
+    </th:block>
+</ul>
+</body>
+</html>
